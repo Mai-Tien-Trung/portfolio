@@ -4,23 +4,23 @@ import { Code2, Server, Network, Layers } from "lucide-react"
 const features = [
   {
     icon: Code2,
-    title: "Clean Code",
-    desc: "Writing maintainable and readable code that scales with long-term development.",
+    title: "Backend Development",
+    desc: "Building maintainable backend logic and practical software systems.",
   },
   {
     icon: Server,
-    title: "Scalable Backend",
-    desc: "Designing backend systems that remain reliable as products and users grow.",
+    title: "API & Authentication",
+    desc: "Developing REST APIs with secure authentication and role-based authorization.",
   },
   {
     icon: Network,
-    title: "API Design",
-    desc: "Building intuitive and secure REST APIs for seamless system communication.",
+    title: "Database Management",
+    desc: "Working with relational databases, data models, and application data flows.",
   },
   {
     icon: Layers,
-    title: "Fullstack Mindset",
-    desc: "Understanding both backend architecture and modern frontend development.",
+    title: "Application Integration",
+    desc: "Connecting backend services with frontend applications and external integrations.",
   },
 ]
 
@@ -32,19 +32,19 @@ const About = () => {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-20 max-w-3xl">
           <p className="text-sm uppercase tracking-[0.25em] text-secondary mb-4">About Me</p>
 
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight">Engineering robust backends while crafting modern frontend experiences.</h2>
+          <h2 className="text-4xl md:text-5xl font-bold leading-tight">Building practical backend solutions with Java and Spring Boot.</h2>
         </motion.div>
 
         {/* Intro */}
         <div className="grid lg:grid-cols-2 gap-16 mb-24">
           <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 0.7 }} className="text-lg text-secondary leading-relaxed">
-            I began my journey focusing on backend development using
-            <span className="text-primary font-medium"> Java and Spring Boot</span>, building high-performance APIs and scalable systems that power modern applications.
+            I am a Backend Developer focused on building REST APIs, database-driven applications, and reliable backend systems. My main experience includes
+            <span className="text-primary font-medium"> Java, Spring Boot, PostgreSQL, MySQL, JWT authentication, role-based authorization, and API integration</span>.
           </motion.p>
 
           <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.1, duration: 0.7 }} className="text-lg text-secondary leading-relaxed">
-            As I progressed, I realized the importance of understanding the entire application lifecycle. Today, I focus on expanding into frontend technologies to build
-            <span className="text-primary font-medium"> complete fullstack solutions</span> that deliver both performance and great user experiences.
+            Through projects such as Campus Facility Management, GreenCare AI, and my Backend OJT experience at FPT Academy, I have worked on
+            <span className="text-primary font-medium"> inventory management, equipment lifecycle tracking, assessment scheduling, OTP email verification, subscription management, payment integration, and AI service integration</span>. I also use frontend technologies, Docker, and Git to support complete application development.
           </motion.p>
         </div>
 
