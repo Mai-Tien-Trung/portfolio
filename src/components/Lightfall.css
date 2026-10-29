@@ -3,6 +3,42 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
+  isolation: isolate;
+  background: transparent;
+}
+
+.lightfall-container::before {
+  content: "";
+  position: absolute;
+  inset: -35%;
+  z-index: 0;
+  pointer-events: none;
+  display: none;
+  background:
+    repeating-linear-gradient(106deg, transparent 0 9%, rgba(34, 211, 238, 0.26) 9.1% 9.22%, transparent 9.35% 16%),
+    repeating-linear-gradient(74deg, transparent 0 13%, rgba(110, 231, 183, 0.2) 13.1% 13.22%, transparent 13.35% 22%),
+    linear-gradient(118deg, transparent 35%, rgba(34, 211, 238, 0.18) 43%, transparent 50%),
+    linear-gradient(132deg, transparent 50%, rgba(110, 231, 183, 0.2) 57%, transparent 64%),
+    radial-gradient(circle at 22% 18%, rgba(15, 159, 138, 0.2), transparent 28%),
+    radial-gradient(circle at 78% 84%, rgba(34, 211, 238, 0.14), transparent 30%);
+  filter: blur(18px);
+  animation: lightfall-fallback-drift 12s ease-in-out infinite alternate;
+}
+
+.lightfall-container::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  z-index: 0;
+  pointer-events: none;
+  display: none;
+  background:
+    repeating-linear-gradient(105deg, transparent 0 8%, rgba(34, 211, 238, 0.8) 8.08% 8.18%, transparent 8.3% 17%),
+    repeating-linear-gradient(75deg, transparent 0 12%, rgba(110, 231, 183, 0.65) 12.08% 12.18%, transparent 12.3% 24%),
+    repeating-linear-gradient(95deg, transparent 0 20%, rgba(236, 253, 245, 0.55) 20.08% 20.16%, transparent 20.3% 33%);
+  filter: blur(1.5px);
+  transform: translate3d(-4%, -3%, 0) scale(1.05);
+  animation: lightfall-fallback-streaks 9s linear infinite;
 }
 
 .lightfall-canvas {
@@ -11,5 +47,37 @@
   display: block;
   width: 100%;
   height: 100%;
+  z-index: 1;
+  opacity: 1;
+}
+
+@keyframes lightfall-fallback-drift {
+  from {
+    transform: translate3d(-3%, -2%, 0) rotate(-2deg) scale(1.02);
+  }
+
+  to {
+    transform: translate3d(3%, 2%, 0) rotate(2deg) scale(1.08);
+  }
+}
+
+@keyframes lightfall-fallback-streaks {
+  from {
+    transform: translate3d(-4%, -3%, 0) scale(1.05);
+  }
+
+  to {
+    transform: translate3d(4%, 5%, 0) scale(1.12);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightfall-container::before {
+    animation: none;
+  }
+
+  .lightfall-container::after {
+    animation: none;
+  }
 }
 

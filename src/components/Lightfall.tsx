@@ -460,6 +460,8 @@ const Lightfall = ({
     const pass = (target, program) => {
       gl.bindFramebuffer(gl.FRAMEBUFFER, target ? target.framebuffer : null);
       gl.viewport(0, 0, target ? target.width : canvas.width, target ? target.height : canvas.height);
+      gl.clearColor(0, 0, 0, 0);
+      gl.clear(gl.COLOR_BUFFER_BIT);
       gl.useProgram(program.program);
       return program.uniforms;
     };
@@ -760,7 +762,6 @@ const Lightfall = ({
       [streakProgram, downProgram, blurProgram, compositeProgram].forEach(item => gl.deleteProgram(item.program));
       gl.deleteBuffer(buffer);
       gl.deleteVertexArray(vao);
-      if (!gl.isContextLost()) gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
   }, [generation]);
 

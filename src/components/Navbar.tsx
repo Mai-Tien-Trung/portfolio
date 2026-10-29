@@ -24,6 +24,9 @@ const Navbar = () => {
     { name: "Contact", href: "#contact" },
   ]
 
+  const foreground = scrolled ? "text-primary" : "text-white"
+  const mutedForeground = scrolled ? "text-secondary hover:text-primary" : "text-white/70 hover:text-white"
+
   return (
     <motion.nav
       initial={{ y: -100 }}
@@ -33,26 +36,26 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Example brand placeholder */}
-        <a href="#home" className={`text-xl font-bold tracking-tight ${scrolled ? "text-primary" : "text-white"}`}>
-          Your Name <span className={scrolled ? "text-secondary" : "text-white/60"}>(Example)</span>
+        <a href="#home" className={`text-xl font-bold tracking-tight ${foreground}`}>
+          Your Name <span className={scrolled ? "text-secondary" : "text-white/70"}>(Example)</span>
         </a>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className={`text-sm font-medium transition-colors duration-300 ${scrolled ? "text-secondary hover:text-primary" : "text-white/75 hover:text-white"}`}>
+            <a key={link.name} href={link.href} className={`text-sm font-medium transition-colors duration-300 ${mutedForeground}`}>
               {link.name}
             </a>
           ))}
 
-          <a href="#contact" className={`px-5 py-2 text-xs font-bold uppercase tracking-widest rounded-full transition-all duration-300 ${scrolled ? "bg-primary text-white hover:bg-secondary" : "bg-white text-black hover:bg-emerald-100"}`}>
+          <a href="#contact" className={`px-5 py-2 text-xs font-bold uppercase tracking-widest rounded-full transition-all duration-300 ${scrolled ? "bg-primary text-white hover:bg-secondary" : "bg-white text-primary hover:bg-emerald-100"}`}>
             Contact (Example)
           </a>
 
         </div>
 
         {/* Mobile Toggle */}
-        <button className={`md:hidden ${scrolled ? "text-primary" : "text-white"}`} onClick={() => setMobileOpen(!mobileOpen)}>
+        <button className={`md:hidden ${foreground}`} onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
