@@ -3,7 +3,7 @@ import { motion } from "framer-motion"
 const examples = ["Project Example 1", "Project Example 2", "Project Example 3"]
 
 const Projects = () => (
-  <section id="projects" className="py-28 px-6 lg:px-24 bg-background-light">
+  <section id="projects" className="py-28 px-6 lg:px-24 bg-white">
     <div className="max-w-7xl mx-auto">
       <div className="mb-16 max-w-2xl">
         <p className="text-sm uppercase tracking-[0.25em] text-secondary mb-4">Example Section</p>

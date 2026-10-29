@@ -1,77 +1,50 @@
 import { motion } from "framer-motion"
 
-const Hero = () => {
-  return (
-    <section id="home" className="relative min-h-screen pt-32 pb-20 px-6 lg:px-24 flex flex-col justify-center overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full top-[-100px] left-[-120px]" />
-        <div className="absolute w-[400px] h-[400px] bg-secondary/10 blur-[120px] rounded-full bottom-[-120px] right-[-80px]" />
-      </div>
+const introduction =
+  "I am a Backend Developer focused on building reliable APIs, database-driven applications, and maintainable software systems. My main experience is with Java, Spring Boot, REST APIs, authentication, authorization, and relational databases. I also work with frontend technologies, Docker, Git, and external service integrations to support complete application development."
 
-      <div className="grid lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
-        {/* LEFT */}
-        <div className="max-w-2xl">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <span className="text-secondary font-medium tracking-[0.2em] uppercase text-sm">Backend Focused — Fullstack Evolving</span>
+const technologies = ["Java", "Spring Boot", "REST API", "PostgreSQL", "React", "Docker", "Git"]
 
-            <h1 className="text-5xl md:text-7xl font-bold mt-6 mb-8 leading-[1.05]">
-              Building <span className="text-secondary">reliable backend systems</span> for better digital experiences.
-            </h1>
+const Hero = () => (
+  <section id="home" style={{ backgroundColor: "#000000" }} className="min-h-screen px-6 py-32 text-white lg:px-24">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="mx-auto max-w-7xl"
+    >
+      <div className="max-w-2xl">
+        <span className="text-sm font-medium tracking-[0.2em] text-emerald-200/80 uppercase">
+          Backend Focused — Fullstack Evolving
+        </span>
 
-            <p className="text-lg text-secondary mb-10 max-w-lg leading-relaxed">
-              I am a Backend Developer focused on building reliable APIs, database-driven applications, and maintainable software systems. My main experience is with Java, Spring Boot, REST APIs, authentication, authorization, and relational databases. I also work with frontend technologies, Docker, Git, and external service integrations to support complete application development.
-            </p>
+        <h1 className="mt-6 mb-8 text-5xl font-bold leading-[1.05] md:text-7xl">
+          Building <span className="text-emerald-300">reliable</span> backend systems for better digital experiences.
+        </h1>
 
-            {/* Tech Stack */}
-            <div className="flex flex-wrap gap-3">
-              {["Java", "Spring Boot", "REST API", "PostgreSQL", "React", "Docker", "Git"].map((tech) => (
-                <span key={tech} className="text-xs px-3 py-1 bg-background-light border border-gray-200 rounded-full text-secondary">
-                  {tech}
-                </span>
-              ))}
-            </div>
+        <p className="mb-10 max-w-lg text-lg leading-relaxed text-white/70">
+          {introduction}
+        </p>
 
-            <div className="flex gap-4 mt-8">
-              <a href="#projects" className="px-8 py-3 bg-primary text-white rounded-full hover:bg-secondary transition">
-                View My Projects
-              </a>
-              <a href="#contact" className="px-8 py-3 border border-primary/20 rounded-full hover:bg-primary/5 transition">
-                Get in Touch
-              </a>
-            </div>
-          </motion.div>
+        <div className="flex flex-wrap gap-4 mb-10">
+          <a href="#projects" className="rounded-full bg-emerald-200 px-8 py-3 text-black transition hover:bg-white">
+            View My Projects
+          </a>
+          <a href="#contact" className="rounded-full border border-white/30 px-8 py-3 text-white transition hover:bg-white/10">
+            Get in Touch
+          </a>
         </div>
 
-        {/* RIGHT */}
-        <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8, delay: 0.2 }} className="relative lg:justify-self-end">
-          {/* Profile Card */}
-          <div className="w-full max-w-md aspect-square bg-gray-200 rounded-3xl overflow-hidden shadow-2xl relative">
-            <div className="w-full h-full bg-gradient-to-br from-primary/10 via-background-light to-secondary/20" aria-hidden="true" />
-          </div>
-
-        </motion.div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 cursor-pointer z-20"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
-        onClick={() => {
-          const section = document.getElementById("about")
-          section?.scrollIntoView({ behavior: "smooth" })
-        }}
-      >
-        <span className="text-[10px] uppercase tracking-widest text-secondary">Scroll</span>
-
-        <div className="w-6 h-10 border-2 border-primary/40 rounded-full flex justify-center relative">
-          <motion.div className="w-1 h-2 bg-primary rounded-full mt-2" animate={{ y: [0, 12, 0] }} transition={{ duration: 1.6, repeat: Infinity }} />
+        <div className="flex flex-wrap gap-3">
+          {technologies.map((technology) => (
+            <span key={technology} className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs text-white/75">
+              {technology}
+            </span>
+          ))}
         </div>
-      </motion.div>
-    </section>
-  )
-}
+      </div>
+    </motion.div>
+  </section>
+)
 
 export default Hero

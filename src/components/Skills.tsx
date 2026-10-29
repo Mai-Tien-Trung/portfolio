@@ -3,18 +3,18 @@ import { motion } from "framer-motion"
 const skillCategories = [
   {
     title: "Backend Engineering",
-    description: "Building scalable APIs, distributed systems, and robust backend architectures.",
-    skills: ["Java", "Spring Boot", "REST API", "Microservices", "System Design", "SQL", "Database Design"],
+    description: "Designing and developing reliable backend systems, REST APIs, and database-driven applications.",
+    skills: ["Java", "Spring Boot", "REST API", "PostgreSQL", "MySQL", "JWT", "Role-Based Authorization", "Database Design"],
   },
   {
-    title: "Frontend Development",
-    description: "Crafting modern UI experiences while expanding into fullstack engineering.",
-    skills: ["React", "TypeScript", "TailwindCSS", "Component Architecture", "Responsive Design"],
+    title: "Frontend & Application Integration",
+    description: "Applying frontend technologies to connect backend services with usable and complete application experiences.",
+    skills: ["React", "TypeScript", "Tailwind CSS", "API Integration", "Responsive Design"],
   },
   {
-    title: "Tools & Engineering Practices",
-    description: "Tools and workflows used to ship reliable production-ready applications.",
-    skills: ["Git", "Docker", "CI/CD", "API Integration", "Postman", "Swagger"],
+    title: "Tools & Delivery",
+    description: "Using practical development tools to manage code, test APIs, and support application delivery.",
+    skills: ["Git", "Docker", "Postman", "Swagger", "Basic CI/CD"],
   },
 ]
 
@@ -29,12 +29,12 @@ const Skills = () => {
           <h2 className="text-4xl md:text-5xl font-bold leading-tight">Technologies I Work With</h2>
 
           <p className="mt-6 text-secondary leading-relaxed">
-            My core strength is backend engineering — building scalable APIs and robust systems. Recently, I’ve been expanding into frontend technologies to deliver fullstack web applications.
+            My primary focus is backend development, with supporting experience in frontend technologies, development tools, and application delivery.
           </p>
         </motion.div>
 
         {/* Skill Cards */}
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto items-stretch">
           {skillCategories.map((category, idx) => (
             <motion.div
               key={category.title}
@@ -42,10 +42,13 @@ const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: idx * 0.2 }}
               whileHover={{ y: -6 }}
-              className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300"
+              className={`h-full bg-white p-8 rounded-3xl border shadow-sm hover:shadow-xl transition-all duration-300 ${idx === 0 ? "md:col-span-2 md:w-1/2 md:justify-self-center border-primary/30 bg-primary/[0.03]" : "border-gray-100"}`}
             >
               {/* Title */}
-              <h3 className="text-xl font-bold mb-3 text-primary">{category.title}</h3>
+              <div className="flex items-start justify-between gap-3 mb-3">
+                <h3 className="text-xl font-bold text-primary">{category.title}</h3>
+                {idx === 0 && <span className="shrink-0 rounded-full bg-primary px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-white">Primary Focus</span>}
+              </div>
 
               {/* Description */}
               <p className="text-sm text-secondary mb-6 leading-relaxed">{category.description}</p>
