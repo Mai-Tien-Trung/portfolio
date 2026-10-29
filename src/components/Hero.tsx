@@ -23,7 +23,7 @@ const Hero = () => (
         holdToWarp
         intro
         streakLength={1}
-        density={0.4}
+        density={0.3}
         glow={1}
         depth={0.5}
         zoom={3}
