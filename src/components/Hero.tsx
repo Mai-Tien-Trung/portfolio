@@ -16,16 +16,16 @@ const Hero = () => {
             <span className="text-secondary font-medium tracking-[0.2em] uppercase text-sm">Backend Focused — Fullstack Evolving</span>
 
             <h1 className="text-5xl md:text-7xl font-bold mt-6 mb-8 leading-[1.05]">
-              Building <span className="text-secondary">scalable</span> systems & digital experiences.
+              Building <span className="text-secondary">reliable backend systems</span> for better digital experiences.
             </h1>
 
             <p className="text-lg text-secondary mb-10 max-w-lg leading-relaxed">
-              I'm a Backend Developer specializing in robust API architecture and system design, now expanding into frontend to deliver complete high-performance web applications.
+              I am a Backend Developer focused on building reliable APIs, database-driven applications, and maintainable software systems. My main experience is with Java, Spring Boot, REST APIs, authentication, authorization, and relational databases. I also work with frontend technologies, Docker, Git, and external service integrations to support complete application development.
             </p>
 
             {/* Tech Stack */}
             <div className="flex flex-wrap gap-3">
-              {["Java", "Spring Boot", "React", "TypeScript", "Docker", "REST API"].map((tech) => (
+              {["Java", "Spring Boot", "REST API", "PostgreSQL", "React", "Docker", "Git"].map((tech) => (
                 <span key={tech} className="text-xs px-3 py-1 bg-background-light border border-gray-200 rounded-full text-secondary">
                   {tech}
                 </span>
@@ -34,10 +34,10 @@ const Hero = () => {
 
             <div className="flex gap-4 mt-8">
               <a href="#projects" className="px-8 py-3 bg-primary text-white rounded-full hover:bg-secondary transition">
-                View Projects (Example)
+                View My Projects
               </a>
               <a href="#contact" className="px-8 py-3 border border-primary/20 rounded-full hover:bg-primary/5 transition">
-                Contact (Example)
+                Get in Touch
               </a>
             </div>
           </motion.div>
