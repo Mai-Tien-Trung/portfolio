@@ -1,0 +1,113 @@
+.tilted-card {
+  position: relative;
+  display: block;
+  transform-style: preserve-3d;
+  user-select: none;
+  touch-action: pan-y;
+  outline: none;
+}
+
+.tilted-card:focus-visible {
+  border-radius: var(--tc-radius, 15px);
+  outline: 2px solid rgba(167, 243, 208, 0.9);
+  outline-offset: 6px;
+}
+
+.tilted-card__body,
+.tilted-card__face {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+.tilted-card__body {
+  will-change: transform;
+  transform-origin: center;
+}
+
+.tilted-card__face {
+  overflow: hidden;
+  border-radius: var(--tc-radius, 15px);
+  backface-visibility: hidden;
+  background: #0b1f1d;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+}
+
+.tilted-card__back {
+  transform: rotateY(180deg);
+}
+
+.tilted-card__img {
+  position: absolute;
+  z-index: 0;
+  display: block;
+  max-width: none;
+  object-fit: cover;
+  pointer-events: none;
+  transform: translate3d(var(--tc-px, 0px), var(--tc-py, 0px), var(--tc-depth, -24px));
+}
+
+.tilted-card__glare,
+.tilted-card__rim,
+.tilted-card__edge {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.tilted-card__glare {
+  z-index: 2;
+  opacity: var(--tc-glare, 0);
+  background: radial-gradient(circle at var(--tc-gx, 50%) var(--tc-gy, 50%), rgba(var(--tc-glare-rgb, 255, 255, 255), 0.6), transparent 42%);
+  mix-blend-mode: screen;
+}
+
+.tilted-card__rim {
+  z-index: 3;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.28), inset 0 0 30px rgba(255, 255, 255, 0.08);
+}
+
+.tilted-card__edge {
+  z-index: 4;
+  background: linear-gradient(135deg, rgba(255,255,255,0.16), transparent 28%, transparent 72%, rgba(0,0,0,0.2));
+}
+
+.tilted-card__shadow {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: -18px;
+  z-index: -1;
+  border-radius: 50%;
+  background: #000;
+  filter: blur(18px);
+  opacity: 0.35;
+  transform-origin: center;
+}
+
+.tilted-card__caption {
+  position: absolute;
+  z-index: 5;
+  left: 18px;
+  bottom: 16px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: #fff;
+  background: rgba(7, 24, 23, 0.62);
+  backdrop-filter: blur(8px);
+  font-size: 0.8rem;
+  font-weight: 600;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.tilted-card:hover .tilted-card__caption,
+.tilted-card[data-active] .tilted-card__caption {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tilted-card__body { transform: none !important; }
+}

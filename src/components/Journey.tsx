@@ -1,5 +1,7 @@
 import { motion } from "framer-motion"
+import { useState } from "react"
 import MorphSlider from "./MorphSlider"
+import HoldButton from "./HoldButton"
 
 const journeyItems = [
   {
@@ -11,7 +13,11 @@ const journeyItems = [
   },
 ]
 
-const Journey = () => (
+const Journey = () => {
+  const [demoOpen, setDemoOpen] = useState(false)
+
+  return (
+  <>
   <section id="journey" className="py-28 px-6 lg:px-24 bg-white">
     <div className="max-w-7xl mx-auto">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-16 max-w-3xl">
@@ -40,15 +46,29 @@ const Journey = () => (
                 <MorphSlider items={item.images.map((image, imageIndex) => ({ image, caption: `Backend OJT image ${imageIndex + 1}` }))} transition="melt" intensity={0.55} aberration={0.35} drift={0.4} autoplay={false} overlayColor="#05060a" duration={1.1} ease="power2.inOut" scale={2.4} loop radius={16} showCaptions showControls showIndicators />
               </div>
 
-              <a href="/videos/backend-ojt.mp4" target="_blank" rel="noopener noreferrer" className="inline-flex w-fit mt-6 px-5 py-2.5 rounded-full bg-primary text-white text-sm font-semibold hover:bg-secondary transition">
-                Watch Demo
-              </a>
+              <div className="mt-6">
+                <HoldButton onHold={() => setDemoOpen(true)} doneLabel="Opening demo..." backgroundColor="#0f766e" fillColor="#10b981" textColor="#ffffff" fillTextColor="#ffffff" size="md" radius={999} holdTime={2000} wave glow>
+                  Hold to watch demo
+                </HoldButton>
+              </div>
             </motion.article>
           ))}
         </div>
       </div>
     </div>
   </section>
-)
+  {demoOpen && (
+    <div className="video-demo-backdrop fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4" role="dialog" aria-modal="true" aria-label="Backend OJT demo" onClick={() => setDemoOpen(false)}>
+      <div className="video-demo-frame relative w-full max-w-5xl overflow-hidden rounded-2xl bg-black shadow-2xl" onClick={(event) => event.stopPropagation()}>
+        <button type="button" onClick={() => setDemoOpen(false)} aria-label="Close demo" className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-2xl text-white hover:bg-black/80">
+          ×
+        </button>
+        <video src="/videos/backend-ojt.mp4" controls autoPlay playsInline className="max-h-[82vh] w-full" />
+      </div>
+    </div>
+  )}
+  </>
+  )
+}
 
 export default Journey

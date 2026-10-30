@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import Lightfall from "./Lightfall"
+import TiltedCard, { TiltedCardLayer } from "./TiltedCard"
 
 const introduction =
   "I am a Backend Developer focused on building reliable APIs, database-driven applications, and maintainable software systems. My main experience is with Java, Spring Boot, REST APIs, authentication, authorization, and relational databases. I also work with frontend technologies, Docker, Git, and external service integrations to support complete application development."
@@ -42,6 +43,7 @@ const Hero = () => (
       transition={{ duration: 0.6 }}
       className="relative z-10 mx-auto w-full max-w-7xl"
     >
+      <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_360px]">
       <div className="max-w-2xl">
         <span className="text-sm font-medium tracking-[0.2em] text-emerald-200 uppercase">
           Backend Focused — Fullstack Evolving
@@ -71,6 +73,32 @@ const Hero = () => (
             </span>
           ))}
         </div>
+      </div>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.92, x: 20 }}
+        animate={{ opacity: 1, scale: 1, x: 0 }}
+        transition={{ duration: 0.7, delay: 0.15 }}
+        className="mx-auto w-full max-w-[360px]"
+      >
+        <TiltedCard
+          imageSrc="/images/profile-cat.jpg"
+          altText="Profile image"
+          captionText="A little profile detail"
+          containerHeight="360px"
+          containerWidth="360px"
+          imageHeight="340px"
+          imageWidth="340px"
+          rotateAmplitude={12}
+          scaleOnHover={1.05}
+          glare={0.5}
+          shadow={0.5}
+          radius={28}
+          intro
+        >
+          <TiltedCardLayer depth={30} />
+        </TiltedCard>
+      </motion.div>
       </div>
     </motion.div>
   </section>

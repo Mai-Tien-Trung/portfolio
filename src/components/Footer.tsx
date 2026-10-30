@@ -9,7 +9,7 @@ const Footer = () => (
       </div>
 
       <nav className="flex flex-wrap justify-center gap-6 text-sm font-medium">
-        {[["Home", "#home"], ["About", "#about"], ["Projects", "#projects"], ["Journey", "#journey"], ["Contact", "#contact"]].map(([item, href]) => (
+        {[["Home", "#home"], ["About", "#about"], ["Projects", "#projects"], ["Journey", "#journey"], ["Certifications", "#certifications"], ["Contact", "#contact"]].map(([item, href]) => (
           <a key={item} href={href} className="hover:text-primary transition">{item}</a>
         ))}
       </nav>

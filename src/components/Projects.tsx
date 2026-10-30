@@ -1,5 +1,7 @@
 import { motion } from "framer-motion"
+import { useState } from "react"
 import MorphSlider from "./MorphSlider"
+import HoldButton from "./HoldButton"
 
 const projectImages = ["/images/project-placeholder/1.svg", "/images/project-placeholder/2.svg", "/images/project-placeholder/3.svg"]
 const campusFacilityImages = [
@@ -28,6 +30,7 @@ const projects = [
       "Tailwind CSS",
       "shadcn/ui",
     ],
+    demo: "/videos/campus-facility-management.mp4",
     images: campusFacilityImages,
   },
   {
@@ -37,16 +40,13 @@ const projects = [
     contributions: ["Plant disease detection integration", "Subscription management", "VNPAY payment integration", "Admin analytics"],
     technologies: ["Spring Boot", "React", "PostgreSQL", "Hugging Face API", "VNPAY"],
   },
-  {
-    title: "Assessment Scheduling System",
-    category: "Backend OJT Project",
-    description: "An assessment platform supporting automated scheduling, secure email verification, and assessment security workflows.",
-    contributions: ["Automated assessment scheduling", "OTP email verification", "JavaMailSender integration", "Assessment security features"],
-    technologies: ["Java", "Spring Boot", "JavaMailSender", "REST API"],
-  },
 ]
 
-const Projects = () => (
+const Projects = () => {
+  const [demoOpen, setDemoOpen] = useState(false)
+
+  return (
+  <>
   <section id="projects" className="py-28 px-6 lg:px-24 bg-background-light">
     <div className="max-w-7xl mx-auto">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-16 max-w-3xl">
@@ -72,12 +72,31 @@ const Projects = () => (
               <div className="flex flex-wrap gap-2">
                 {project.technologies.map((technology) => <span key={technology} className="px-3 py-1.5 text-xs rounded-full border border-primary/10 bg-primary/5 text-primary">{technology}</span>)}
               </div>
+              {project.demo && (
+                <div className="mt-6">
+                  <HoldButton onHold={() => setDemoOpen(true)} doneLabel="Opening demo..." backgroundColor="#0f766e" fillColor="#10b981" textColor="#ffffff" fillTextColor="#ffffff" size="md" radius={999} holdTime={2000} wave glow>
+                    Hold to watch demo
+                  </HoldButton>
+                </div>
+              )}
             </div>
           </motion.article>
         ))}
       </div>
     </div>
   </section>
-)
+  {demoOpen && (
+    <div className="video-demo-backdrop fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4" role="dialog" aria-modal="true" aria-label="Campus Facility Management demo" onClick={() => setDemoOpen(false)}>
+      <div className="video-demo-frame relative w-full max-w-5xl overflow-hidden rounded-2xl bg-black shadow-2xl" onClick={(event) => event.stopPropagation()}>
+        <button type="button" onClick={() => setDemoOpen(false)} aria-label="Close demo" className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-2xl text-white hover:bg-black/80">
+          ×
+        </button>
+        <video src="/videos/campus-facility-management.mp4" controls autoPlay playsInline className="max-h-[82vh] w-full" />
+      </div>
+    </div>
+  )}
+  </>
+  )
+}
 
 export default Projects

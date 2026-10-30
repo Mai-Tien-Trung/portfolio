@@ -1,0 +1,115 @@
+.depth-carousel {
+  position: relative;
+  width: 100%;
+  height: 570px;
+  overflow: hidden;
+  perspective: var(--dc-perspective, 1400px);
+  touch-action: pan-y;
+  user-select: none;
+  outline: none;
+}
+
+.depth-carousel:focus-visible {
+  outline: 2px solid rgba(15, 118, 110, 0.45);
+  outline-offset: 8px;
+  border-radius: 20px;
+}
+
+.depth-carousel__stage {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+.depth-carousel__card {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: center;
+  transition: filter 180ms ease;
+  box-shadow: 0 24px 55px rgba(15, 23, 42, 0.2);
+  background: #f8fafc;
+}
+
+.depth-carousel__card:hover {
+  box-shadow: 0 30px 65px rgba(15, 23, 42, 0.28);
+}
+
+.depth-carousel__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #ffffff;
+  pointer-events: none;
+}
+
+.depth-carousel__tint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.depth-carousel__arrow {
+  position: absolute;
+  top: 45%;
+  z-index: 20;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid rgba(15, 118, 110, 0.18);
+  border-radius: 999px;
+  color: #0f766e;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.12);
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.depth-carousel__arrow:hover {
+  background: #ffffff;
+  transform: translateY(-50%) scale(1.06);
+}
+
+.depth-carousel__arrow--prev { left: 18px; }
+.depth-carousel__arrow--next { right: 18px; }
+
+.depth-carousel__dots {
+  position: absolute;
+  bottom: 16px;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.depth-carousel__dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(15, 118, 110, 0.25);
+  cursor: pointer;
+  transition: width 180ms ease, background 180ms ease;
+}
+
+.depth-carousel__dot.is-active {
+  width: 24px;
+  background: #0f766e;
+}
+
+@media (max-width: 640px) {
+  .depth-carousel { height: 500px; }
+  .depth-carousel__arrow--prev { left: 6px; }
+  .depth-carousel__arrow--next { right: 6px; }
+}

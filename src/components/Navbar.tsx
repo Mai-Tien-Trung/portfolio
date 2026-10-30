@@ -21,6 +21,7 @@ const Navbar = () => {
     { name: "Skills", href: "#skills" },
     { name: "Projects", href: "#projects" },
     { name: "Journey", href: "#journey" },
+    { name: "Certifications", href: "#certifications" },
     { name: "Contact", href: "#contact" },
   ]
 
@@ -36,7 +37,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <a href="#home" className={`text-xl font-bold tracking-tight ${foreground}`}>
-          Mai Tiến Trung
+          Gris
         </a>
 
         {/* Desktop Menu */}

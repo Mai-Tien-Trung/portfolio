@@ -1,5 +1,6 @@
 import About from "./components/About"
 import Contact from "./components/Contact"
+import Certifications from "./components/Certifications"
 import Footer from "./components/Footer"
 import Hero from "./components/Hero"
 import Journey from "./components/Journey"
@@ -16,6 +17,7 @@ function App() {
       <Skills />
       <Journey />
       <Projects />
+      <Certifications />
       <Contact />
       <Footer />
     </>
