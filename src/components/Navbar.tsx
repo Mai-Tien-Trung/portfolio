@@ -35,9 +35,8 @@ const Navbar = () => {
       className={`fixed top-0 w-full z-50 transition-all duration-300 px-6 lg:px-24 ${scrolled ? "bg-background-light/80 backdrop-blur-md py-4 border-b border-primary/5" : "bg-transparent py-6"}`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Example brand placeholder */}
         <a href="#home" className={`text-xl font-bold tracking-tight ${foreground}`}>
-          Your Name <span className={scrolled ? "text-secondary" : "text-white/70"}>(Example)</span>
+          Mai Tiến Trung
         </a>
 
         {/* Desktop Menu */}
@@ -49,7 +48,7 @@ const Navbar = () => {
           ))}
 
           <a href="#contact" className={`px-5 py-2 text-xs font-bold uppercase tracking-widest rounded-full transition-all duration-300 ${scrolled ? "bg-primary text-white hover:bg-secondary" : "bg-white text-primary hover:bg-emerald-100"}`}>
-            Contact (Example)
+            Contact Me
           </a>
 
         </div>
@@ -72,7 +71,7 @@ const Navbar = () => {
               ))}
 
               <a href="#contact" onClick={() => setMobileOpen(false)} className="mt-4 px-5 py-3 bg-primary text-white text-sm font-semibold rounded-full text-center">
-                Contact (Example)
+                Contact Me
               </a>
 
             </div>
