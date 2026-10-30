@@ -43,7 +43,7 @@ const About = () => {
           </motion.p>
 
           <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ delay: 0.1, duration: 0.7 }} className="text-lg text-secondary leading-relaxed">
-            Through projects such as Campus Facility Management, GreenCare AI, and my Backend OJT experience at FPT Academy, I have worked on
+            Through projects such as Campus Facility Management, GreenCare AI, and my Backend OJT experience at FPT Software, I have worked on
             <span className="text-primary font-medium"> inventory management, equipment lifecycle tracking, assessment scheduling, OTP email verification, subscription management, payment integration, and AI service integration</span>. I also use frontend technologies, Docker, and Git to support complete application development.
           </motion.p>
         </div>
