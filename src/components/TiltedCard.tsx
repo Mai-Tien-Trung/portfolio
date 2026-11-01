@@ -43,7 +43,7 @@ const step = (state, key, target, omega, zeta, dt) => {
   return !settled;
 };
 
-export const TiltedCardLayer = ({ depth = 20, className = '', style, children }) => (
+export const TiltedCardLayer = ({ depth = 20, className = '', style = {}, children = null }) => (
   <div className={`tilted-card__layer ${className}`.trim()} style={{ '--tc-depth': depth, ...style }}>
     {children}
   </div>
@@ -66,8 +66,8 @@ const TiltedCard = ({
   children,
   backContent = null,
   flipOnClick = true,
-  flipped,
-  onFlip,
+  flipped = undefined,
+  onFlip = undefined,
   radius = 15,
   perspective = 800,
   smoothness = 0.6,
@@ -82,9 +82,9 @@ const TiltedCard = ({
   gyroscope = true,
   intro = true,
   introDelay = 0,
-  onClick,
+  onClick = undefined,
   className = '',
-  style
+  style = {}
 }) => {
   const figureRef = useRef(null);
   const bodyRef = useRef(null);

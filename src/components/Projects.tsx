@@ -3,13 +3,15 @@ import { useState } from "react"
 import MorphSlider from "./MorphSlider"
 import HoldButton from "./HoldButton"
 
-const projectImages = ["/images/project-placeholder/1.svg", "/images/project-placeholder/2.svg", "/images/project-placeholder/3.svg"]
+const base = import.meta.env.BASE_URL
+
+const projectImages = [`${base}images/project-placeholder/1.svg`, `${base}images/project-placeholder/2.svg`, `${base}images/project-placeholder/3.svg`]
 const campusFacilityImages = [
-  "/images/campus-facility/homepage.png",
-  "/images/campus-facility/1.png",
-  "/images/campus-facility/2.png",
-  "/images/campus-facility/3.png",
-  "/images/campus-facility/4.png",
+  `${base}images/campus-facility/homepage.png`,
+  `${base}images/campus-facility/1.png`,
+  `${base}images/campus-facility/2.png`,
+  `${base}images/campus-facility/3.png`,
+  `${base}images/campus-facility/4.png`,
 ]
 
 
@@ -30,7 +32,7 @@ const projects = [
       "Tailwind CSS",
       "shadcn/ui",
     ],
-    demo: "/videos/campus-facility-management.mp4",
+    demo: `${base}videos/campus-facility-management.mp4`,
     images: campusFacilityImages,
   },
   {
@@ -91,7 +93,7 @@ const Projects = () => {
         <button type="button" onClick={() => setDemoOpen(false)} aria-label="Close demo" className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-2xl text-white hover:bg-black/80">
           ×
         </button>
-        <video src="/videos/campus-facility-management.mp4" controls autoPlay playsInline className="max-h-[82vh] w-full" />
+        <video src={`${base}videos/campus-facility-management.mp4`} controls autoPlay playsInline className="max-h-[82vh] w-full" />
       </div>
     </div>
   )}

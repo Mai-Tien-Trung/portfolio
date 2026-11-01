@@ -2,30 +2,32 @@ import { motion } from "framer-motion"
 import { useState } from "react"
 import DepthCarousel from "./DepthCarousel"
 
+const base = import.meta.env.BASE_URL
+
 const certificates = [
   {
-    image: "/images/certificates/SE.png",
+    image: `${base}images/certificates/SE.png`,
     alt: "HackerRank Software Engineer certificate",
     title: "Software Engineer",
     issuer: "HackerRank",
     link: "https://www.hackerrank.com/certificates/121dd1f43f05",
   },
   {
-    image: "/images/certificates/SEI.png",
+    image: `${base}images/certificates/SEI.png`,
     alt: "HackerRank Software Engineer Intern certificate",
     title: "Software Engineer Intern",
     issuer: "HackerRank",
     link: "https://www.hackerrank.com/certificates/iframe/efcdfa56b141",
   },
   {
-    image: "/images/certificates/sql.png",
+    image: `${base}images/certificates/sql.png`,
     alt: "HackerRank SQL Basic certificate",
     title: "SQL (Basic)",
     issuer: "HackerRank",
     link: "https://www.hackerrank.com/certificates/iframe/f29e92af2c58",
   },
   {
-    image: "/images/certificates/Software_Development_Lifecycle.jpeg",
+    image: `${base}images/certificates/Software_Development_Lifecycle.jpeg`,
     alt: "Coursera Software Development Lifecycle specialization certificate",
     title: "Software Development Lifecycle",
     issuer: "Coursera",
@@ -67,7 +69,7 @@ const Certifications = () => {
             ease="power3.out"
             showControls
             showIndicators
-            onChange={(index) => setActive(index)}
+            onChange={(index: number) => setActive(index)}
           />
 
           <div className="mt-4 text-center">

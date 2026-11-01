@@ -82,7 +82,7 @@ const Hero = () => (
         className="mx-auto w-full max-w-[360px]"
       >
         <TiltedCard
-          imageSrc="/images/profile-cat.jpg"
+          imageSrc={`${import.meta.env.BASE_URL}images/profile-cat.jpg`}
           altText="Profile image"
           captionText="A little profile detail"
           containerHeight="360px"

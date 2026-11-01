@@ -3,13 +3,20 @@ import { useState } from "react"
 import MorphSlider from "./MorphSlider"
 import HoldButton from "./HoldButton"
 
+const base = import.meta.env.BASE_URL
+
 const journeyItems = [
   {
     period: "Experience",
     title: "Backend OJT",
     description: "Worked on an assessment platform with automated assessment scheduling, OTP email verification, JavaMailSender integration, and assessment security features.",
     technologies: ["Java", "Spring Boot", "JavaMailSender", "REST API"],
-    images: ["/images/backend-ojt/1.png", "/images/backend-ojt/2.png", "/images/backend-ojt/3.png", "/images/backend-ojt/4.png"],
+    images: [
+      `${base}images/backend-ojt/1.png`,
+      `${base}images/backend-ojt/2.png`,
+      `${base}images/backend-ojt/3.png`,
+      `${base}images/backend-ojt/4.png`,
+    ],
   },
 ]
 
@@ -63,7 +70,7 @@ const Journey = () => {
         <button type="button" onClick={() => setDemoOpen(false)} aria-label="Close demo" className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/60 text-2xl text-white hover:bg-black/80">
           ×
         </button>
-        <video src="/videos/backend-ojt.mp4" controls autoPlay playsInline className="max-h-[82vh] w-full" />
+        <video src={`${base}videos/backend-ojt.mp4`} controls autoPlay playsInline className="max-h-[82vh] w-full" />
       </div>
     </div>
   )}
